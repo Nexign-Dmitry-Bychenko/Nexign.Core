@@ -79,6 +79,16 @@ namespace Nexign {
       if (string.IsNullOrWhiteSpace(value))
         return false;
 
+      value = value.Trim();
+
+      if (value.StartsWith("v.") || value.StartsWith("V."))
+        value = value.Substring(2).Trim();
+      else if (value.StartsWith("v") || value.StartsWith("V"))
+        value = value.Substring(1).Trim();
+
+      if (string.IsNullOrWhiteSpace(value))
+        return false;
+
       string main = "";
       string pre = "";
       string build = "";
